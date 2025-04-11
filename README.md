@@ -1,14 +1,36 @@
-# MACHINE LEARNING AND PATTERN RECOGNITION
-#### Project task
+# Fingerprint Spoofing
+
+## Authors
+- [Michele Cazzola](https://github.com/MicheleCazzola)
+
+## General information
+**Course**: `Machine Learning and Pattern Recognition` (`Polytechnic of Turin`).  
+**Academic year**: 2023-24, developed progressively from March to July 2024. The project is divided in activities related to one another (often sequential or parallel), presented about one per week, for a total of 9 activities.  
+**Teacher**: Sandro Cumani.  
+**Topic**: implementation and evaluation of several shallow machine learning models:
+- Multivariate Gaussian (`MVG`)
+- Logistic Regression (`LR`)
+- Support Vector Machine (`SVM`)
+- Gaussian Mixture Model (`GMM`)  
+
+alongside with:
+- preprocessing techniques: Principal Component Analysis (`PCA`), Linear Discriminant Analysis (`LDA`)
+- validation and evaluation schemes: K-fold cross-validation, Detection Cost Function (`DCF`)
+- model calibration
+- model ensemble: score fusion with Logistic Regression.
+
+The following content is the transcription of the description of the activities that compose the whole project.
 
 ## Introduction
 The project task consists of a binary classification problem. The goal is to perform fingerprint spoofing detection, i.e. to identify genuine vs counterfeit fingerprint images. The dataset consists of labelled samples corresponding to the genuine (True, label 1) class and the fake (False, label 0) class. The samples are computed by a feature extractor that summarizes high-level characteristics of a fingerprint image. The data is 6-dimensional.
 The training files for the project are stored in file Project/trainData.txt. The format of the file is the same as for the Iris dataset, i.e. a csv file where each row represents a sample. The first 6 values of each row are the features, whereas the last value of each row represents the class (1 or 0). The samples are not ordered. 
+
 ## Lab 2 - Features loading and visualization
 Load the dataset and plot the histogram and pair-wise scatter plots of the different features. Analyze the plots:
 1.	Analyze the first two features. What do you observe? Do the classes overlap? If so, where? Do the classes show similar mean for the first two features? Are the variances similar for the two classes? How many modes are evident from the histograms (i.e., how many “peaks” can be observed)?
 2.	Analyze the third and fourth features. What do you observe? Do the classes overlap? If so, where? Do the classes show similar mean for these two features? Are the variances similar for the two classes? How many modes are evident from the histograms?
 3.	Analyze the last two features. What do you observe? Do the classes overlap? If so, where? How many modes are evident from the histograms? How many clusters can you notice from the scatter plots for each class?
+
 ## Lab 3 - Dimensionality reduction
 Apply PCA and LDA to the project data.
 1. Start analyzing the effects of PCA on the features. Plot
@@ -31,6 +53,7 @@ the classification accuracy?
 only), and then classify the validation data with LDA. Analyze the performance as a function of the
 number of PCA dimensions m . What do you observe? Can you find values of m that improve the
 accuracy on the validation set? Is PCA beneficial for the task when combined with the LDA classifier?
+
 
 ## Lab 4 - Gaussian density estimation
 1. Try fitting uni-variate Gaussian models to the different features of the project dataset. For each component
@@ -97,6 +120,7 @@ the feature space, and apply the three classification approaches. What do you ob
 for this dataset with the Gaussian models? Overall, what is the model that provided the best accuracy
 on the validation set?
 
+
 ## Lab 7 - Model evaluation and Bayes decisions
 1. Analyze the performance of the MVG classifier and its variants for different applications. Start considering five applications, given by (π_1, C_fn, C_fp):
    - (0.5, 1.0, 1.0) , i.e., uniform prior and costs
@@ -129,6 +153,7 @@ classifiers. Compare the minimum DCF of the three models for different applicati
 model, plot minimum and actual DCF. Consider prior log odds in the range (−4, +4) . What do you
 observe? Are model rankings consistent across applications (minimum DCF)? Are models well-calibrated
 over the considered range?
+
 
 ## Lab 8 - Logistic regression
 We analyze the binary logistic regression model on the project data. We start considering the standard,
@@ -175,6 +200,7 @@ Gaussian models, in terms of minDCF for the target application π T = 0.1 . Whic
 the best results? What kind of separation rules or distribution assumptions characterize this / these
 model(s)? How are the results related to the characteristics of the dataset features?
 
+
 ## Lab 9 - Support vector machine
 1. Apply the SVM to the project data. Start with the linear model (to avoid excessive training time we
 consider only the models trained with K = 1.0). Train the model with different values of C. As for
@@ -204,6 +230,7 @@ four lines for minDCF and four lines for actDCF). Analyze the results. Are there
 provide better results? Are the scores well calibrated? How the result compare to previous models? Are
 there characteristics of the dataset that can be better captured by RBF kernels?
 
+
 ## Lab10 - Gaussian Mixture Model
 In this section we apply the GMM models to classification of the project data.
 1. For each of the two classes, we need to decide the number of Gaussian components (hyperparameter of
@@ -226,6 +253,7 @@ minimum DCF, are the results consistent, preserving the relative ranking of the 
 actual DCF? Are there models that are well calibrated for most of the operating point range? Are there
 models that show significant miscalibration? Are there models that are harmful for some applications?
 We will see how to deal with these issue in the last laboratory.
+
 
 ## Lab11 - Score calibration and fusion
 ### Calibration and fusion
