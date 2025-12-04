@@ -1,5 +1,7 @@
 # Fingerprint Spoofing
 
+New code version available at [fingerprint-spoofing](https://github.com/MicheleCazzola/fingerprint-spoofing). It is better documented and follows the typical software conventions of ML works.
+
 ## Authors
 - [Michele Cazzola](https://github.com/MicheleCazzola)
 
